@@ -126,13 +126,170 @@
     <script>
         const valesData = [
             { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "Casal" },
+
+            { titulo: "Vale uma noite de cinema com pipoca e a escolha do filme é sua 🍿", cat: "Casal" },
+
+            { titulo: "Vale uma maratona da sua série favorita 📺", cat: "Casal" },
+
+            { titulo: "Vale uma noite de jogos (tabuleiro ou videogame) 🎮", cat: "Casal" },
+
             { titulo: "Vale uma massagem relaxante 💆‍♂️", cat: "Casal" },
+
+            { titulo: "Vale uma sobremesa feita especialmente para você 🍰", cat: "Casal" },
+
+            { titulo: "Vale um acampamento na sala (colchão e luzinhas) ✨", cat: "Casal" },
+
+            { titulo: "Vale um piquenique no parque 🧺", cat: "Casal" },
+
+            { titulo: "Vale um sorvete no meio da tarde 🍦", cat: "Casal" },
+
+            { titulo: "Vale uma trilha ou caminhada ao ar livre 🌿", cat: "Casal" },
+
+            { titulo: "Vale um jantar no seu restaurante favorito 🍽️", cat: "Casal" },
+
+            { titulo: "Vale uma ida ao cinema para ver um lançamento 🎬", cat: "Casal" },
+
+            { titulo: "Vale uma noite de boliche ou fliperama Bowling", cat: "Casal" },
+
+            { titulo: "Vale um 'dia de sim' ✅", cat: "Casal" },
+
+            { titulo: "Vale um café da tarde em uma cafeteria superfaturada ☕", cat: "Casal" },
+
+            { titulo: "Vale uma noite para dançar 💃", cat: "Casal" },
+
+            { titulo: "Vale um pôr do sol em um lugar bonito 🌅", cat: "Casal" },
+
+            { titulo: "Vale eu aprender algo que você gosta 🧠", cat: "Casal" },
+
+            { titulo: "Vale uma playlist de fotos e vídeos dos nossos melhores momentos 📱", cat: "Casal" },
+
+            { titulo: "Vale uma carta escrita à mão com 10 motivos por que te amo ✍️", cat: "Casal" },
+
+            { titulo: "Vale um 'vale-presente' em uma loja que você gosta 🎁", cat: "Casal" },
+
+            { titulo: "Vale escolher o look que eu vou usar em um encontro 👗", cat: "Casal" },
+
+            { titulo: "Vale 10 beijos inesperados 💋", cat: "Casal" },
+
+            { titulo: "Vale um abraço de urso de 1 minuto 🫂", cat: "Casal" },
+
+            { titulo: "Vale um elogio sincero por hora durante um dia todo 🌟", cat: "Casal" },
+
+            { titulo: "Vale uma declaração pública de amor ❤️", cat: "Casal" },
+
+            { titulo: "Vale revivermos o nosso primeiro encontro 🔙", cat: "Casal" },
+
+            { titulo: "Vale ganhar uma discussão (mesmo sem razão!) 🤫", cat: "Casal" },
+
+            { titulo: "Vale uma pergunta que responderei com honestidade 🗣️", cat: "Casal" },
+
+            { titulo: "Vale um desejo aleatório ✨", cat: "Casal" },
+
+            { titulo: "Vale renovar este bloquinho de vales 📝", cat: "Casal" },
+
+            { titulo: "Vale um dia inteiro sem celular 📵", cat: "Casal" },
+
+            { titulo: "Vale uma dança romântica na sala 🎶", cat: "Casal" },
+
+            { titulo: "Vale um 'Eu te amo' bem criativo 🎨", cat: "Casal" },
+
+            { titulo: "Vale-Pole Position: Você escolhe onde sentar 🏎️", cat: "F1" },
+
             { titulo: "Vale-GP em Casa: Assistir corrida inteira juntos 🏁", cat: "F1" },
-            { titulo: "Vale-Final de Campeonato: Petiscos para o jogo ⚽", cat: "Futebol" },
+
+            { titulo: "Vale-Final de Campeonato: Petiscos para o jogo do seu time ⚽", cat: "Futebol" },
+
+            { titulo: "Vale-Simulador: Ida ao kart ou fliperama de corrida 🏎️", cat: "F1" },
+
+            { titulo: "Vale-Camisa de Time: Eu uso a camisa do seu time por um dia 👕", cat: "Futebol" },
+
+            { titulo: "Vale-Comentarista: Assistir análise de F1/Futebol comigo 🎙️", cat: "F1" },
+
             { titulo: "Vale-Mansão Maromba: Um treino junto 💪", cat: "Shape" },
-            { titulo: "Vale-Em Pleno 2026: Lição de moral 🗣️", cat: "Toguro" },
-            // ... adicione todos os outros aqui seguindo esse padrão
+
+            { titulo: "Vale-Shape Inexplicável: Um dia de dieta rigorosa comigo 🥗", cat: "Shape" },
+
+            { titulo: "Vale-Em Pleno 2026: Lição de moral sem interrupção 🗣️", cat: "Toguro" },
+
+            { titulo: "Vale-Postagem de Casal: Foto com legenda motivacional 📸", cat: "Toguro" },
+
+            { titulo: "Vale-Call de Boa Noite: Vídeo de 30 min antes de dormir 🌙", cat: "Casal" },
+
+            { titulo: "Vale-Escolha o Filme: Streaming simultâneo 💻", cat: "Casal" },
+
+            { titulo: "Vale-Hospedagem VIP: Minha casa com tudo que você gosta 🏠", cat: "Casal" },
+
+            { titulo: "Vale-Roteiro Turístico: Eu planejo o próximo encontro 🗺️", cat: "Casal" },
+
+            { titulo: "Vale-Safety Car: Pausa estratégica em discussão ⚠️", cat: "F1" },
+
+            { titulo: "Vale-Entrevista Coletiva: Paro tudo para te ouvir 🎤", cat: "Casal" },
+
+            { titulo: "Vale-Paddock VIP: Jantar especial sendo eu a anfitriã 🍽️", cat: "F1" },
+
+            { titulo: "Vale-Abastecimento: Eu pago o próximo lanche 🍔", cat: "F1" },
+
+            { titulo: "Vale-Shape Blindado: Dia de elogios à sua evolução 🦾", cat: "Shape" },
+
+            { titulo: "Vale-Dose de Endorfina: Passeio ao ar livre juntos 🚲", cat: "Shape" },
+
+            { titulo: "Vale-Marmita de Ouro: Cozinho sua dieta da semana 🍱", cat: "Shape" },
+
+            { titulo: "Vale-Vencer o Sistema: Desabafo sobre estudos e eu apoio 🤝", cat: "Casal" },
+
+            { titulo: "Vale-Post de Casal Maromba: Tiro 10 fotos suas na academia 🤳", cat: "Shape" },
+
+            { titulo: "Vale-Gol de Placa: Jantar para comemorar conquista sua 🏆", cat: "Futebol" },
+
+            { titulo: "Vale-Camisa 10: Você toma todas as decisões do meu dia 🔟", cat: "Futebol" },
+
+            { titulo: "Vale-Substituição: Faço uma tarefa chata por você 🔄", cat: "Futebol" },
+
+            { titulo: "Vale-Acréscimos: Mais 15 minutos de cafuné ⏱️", cat: "Futebol" },
+
+            { titulo: "Vale-Janela de Transferência: Lugar novo na cidade 📍", cat: "Futebol" },
+
+            { titulo: "Vale-Pênalti a Favor: Um favor 'difícil' para mim ⚽", cat: "Futebol" },
+
+            { titulo: "Vale-Notificação Favorita: Fotos e vídeos fofos o dia todo 📩", cat: "Casal" },
+
+            { titulo: "Vale-Áudio de Bom Dia: Motivos do meu orgulho 🎙️", cat: "Casal" },
+
+            { titulo: "Vale-Web Date: Jantarmos por vídeo call 🥂", cat: "Casal" },
+
+            { titulo: "Vale-Contagem Regressiva: Plano para o próximo fds 🗓️", cat: "Casal" },
+
+            { titulo: "Vale-Delivery de Doce: Mimo na tarde de estudos 🍩", cat: "Casal" },
+
+            { titulo: "Vale-Spoiler de Amor: Motivo novo por dia (1 semana) 💖", cat: "Casal" },
+
+            { titulo: "Vale-Skin Care de Casal: Eu cuido da sua pele ✨", cat: "Casal" },
+
+            { titulo: "Vale-Roupa Escolhida: Eu escolho o seu look 👕", cat: "Casal" },
+
+            { titulo: "Vale-Massagem Capilar: Cafuné assistindo TV 💆‍♂️", cat: "Casal" },
+
+            { titulo: "Vale-Lembrança de 1 Ano: 12 melhores memórias 📝", cat: "Casal" },
+
+            { titulo: "Vale-Calar a Boca: Paro de falar por 10 minutos 🤐", cat: "Casal" },
+
+            { titulo: "Vale-Google Humano: Resolvo dúvida técnica para você 🔍", cat: "Casal" },
+
+            { titulo: "Vale-Veto de Assunto: Mudar assunto chato na hora 🚫", cat: "Casal" },
+
+            { titulo: "Vale-Revanche: Repetir encontro legal 🔁", cat: "Casal" },
+
+            { titulo: "Vale-Look Conforto: Sair de pijama/moletom ☁️", cat: "Casal" },
+
+            { titulo: "Vale-Música Repetida: Ouço sua música 3x seguidas 🎵", cat: "Casal" },
+
+            { titulo: "Vale-Sonho Realizado: Pequeno desejo para hoje ✨", cat: "Casal" },
+
+            { titulo: "Vale-Vale Tudo: Repetir qualquer opção anterior 🔄", cat: "Casal" }
+
         ];
+
+
 
         let progresso = JSON.parse(localStorage.getItem('vales_1ano')) || {};
 
