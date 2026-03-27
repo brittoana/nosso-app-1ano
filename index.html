@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>1 Ano de Nós</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="1 Ano de Nós">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <style>
+        :root {
+            --bg: #FAF9F6; /* Off-White */
+            --card: #ffffff;
+            --primary: #e60000; /* Vermelho F1 */
+            --text: #1a1a1a;
+            --text-light: #707070;
+            --f1: #e60000;
+            --futebol: #28a745;
+            --shape: #333;
+            --casal: #d1d1d1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px 20px 100px 20px; /* Espaço para a barra de baixo */
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .header-amor {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #contador {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .header-amor p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        /* Navegação Inferior (Ajustada para 2 itens) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-around; /* Distribui os 2 itens */
+            padding: 15px 0 35px 0; /* Padding extra para o notch do iPhone */
+            border-top: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            border: none;
+            background: none;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px;
+            flex: 1; /* Faz os botões dividirem o espaço igualmente */
+            text-align: center;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        /* Seções */
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards e Categorias */
+        .card {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        /* Efeito de clique suave */
+        .card:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Borda colorida por categoria */
+        .card.f1 { border-left: 5px solid var(--f1); }
+        .card.shape { border-left: 5px solid var(--shape); }
+        .card.toguro { border-left: 5px solid var(--shape); }
+        .card.futebol { border-left: 5px solid var(--futebol); }
+        .card.casal { border-left: 5px solid var(--casal); }
+
+        .badge {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 8px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #f0f0f0;
+            color: #555;
+        }
+
+        .card h3 {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .btn-resgatar {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Estilo do vale resgatado */
+        .card.done {
+            opacity: 0.6;
+            background: #f9f9f9;
+            filter: grayscale(0.5);
+        }
+        
+        .status-resgatado {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        /* Playlist */
+        .playlist-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>1 Ano de Nós ❤️</h1>
+
+    <div class="header-amor">
+        <div id="contador">Calculando...</div>
+        <p>Desde o nosso primeiro "sim"</p>
+    </div>
+
+    <div id="vales" class="section active">
+        <div id="lista-vales"></div>
+    </div>
+
+    <div id="trilha" class="section">
+        <div class="playlist-container">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX7gGoM99t91B?utm_source=generator" 
+                width="100%" height="500" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-item active" onclick="window.showTab('vales', this)">Meus Vales</button>
+        <button class="nav-item" onclick="window.showTab('trilha', this)">Nossa Trilha</button>
+    </nav>
+
+    <script>
+        // LISTA DE VALES (Comecei com os seus exemplos, você completa até 83)
+        const valesData = [
+            { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "casal" },
+            { titulo: "F1: Vale-Pole Position (Escolher lugar de sentar) 🏎️", cat: "f1" },
+            { titulo: "F1: Vale-GP em Casa (Corrida inteira juntos) 🏁", cat: "f1" },
+            { titulo: "Futebol: Vale-Final de Campeonato (Petiscos) ⚽", cat: "futebol" },
+            { titulo: "Toguro: Vale-Em Pleno 2026 (Lição Motivacional) 🗣️", cat: "toguro" },
+            { titulo: "Shape: Vale-Mansão Maromba (Treino juntos) 💪", cat: "shape" },
+            { titulo: "Vale um 'dia de sim' (Eu topo todos os planos) ✅", cat: "casal" },
+            { titulo: "Vale uma massagem relaxante 💆‍♂️", cat: "casal" },
+            { titulo: "Vale ganhar uma discussão (Mesmo sem razão!) 🤫", cat: "casal" }
+            // Adicione os outros aqui seguindo o padrão { titulo: "...", cat: "..." }
+        ];
+
+        // Carrega o progresso do LocalStorage ou inicia vazio
+        let progresso = JSON.parse(localStorage.getItem('vales_1ano')) || {};
+
+        // Função para desenhar os vales na tela
+        function renderVales() {
+            const container = document.getElementById('lista-vales');
+            if (!container) return;
+            
+            container.innerHTML = valesData.map((vale, i) => `
+                <div class="card ${vale.cat} ${progresso[i] ? 'done' : ''}">
+                    <span class="badge">${vale.cat}</span>
+                    <h3>${vale.titulo}</h3>
+                    ${!progresso[i] 
+                        ? `<button class="btn-resgatar" onclick="resgatar(${i})">RESGATAR</button>` 
+                        : '<span class="status-resgatado">✅ Resgatado</span>'}
+                </div>
+            `).join('');
+        }
+
+        // Função para resgatar um vale
+        window.resgatar = (i) => {
+            if(confirm("Deseja resgatar este vale agora? Ele ficará marcado como usado.")) {
+                progresso[i] = true;
+                localStorage.setItem('vales_1ano', JSON.stringify(progresso));
+                renderVales();
+            }
+        };
+
+        // Função para trocar de aba
+        window.showTab = (tabId, btn) => {
+            // Esconde todas as seções
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            // Desativa todos os botões
+            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            
+            // Mostra a seção clicada e ativa o botão
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+            
+            // Rola para o topo suavemente
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // CONTADOR DE DIAS
+        const dataInicio = new Date("2025-03-29T00:00:00"); // Ajuste sua data aqui (Ano-Mês-Dia)
+        
+        function atualizarContador() {
+            const agora = new Date();
+            const diferenca = agora - dataInicio;
+            
+            // Converte milissegundos em dias
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            
+            const el = document.getElementById('contador');
+            if(el) el.innerHTML = `<strong>${dias} dias</strong> de nós`;
+        }
+        
+        // Atualiza a cada segundo e roda uma vez ao carregar
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+        
+        // Desenha os vales ao carregar a página
+        renderVales();
+    </script>
+</body>
+</html>
