@@ -210,83 +210,90 @@
     </nav>
 
     <script>
-        // LISTA DE VALES (Comecei com os seus exemplos, você completa até 83)
-        const valesData = [
-            { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "casal" },
-            { titulo: "F1: Vale-Pole Position (Escolher lugar de sentar) 🏎️", cat: "f1" },
-            { titulo: "F1: Vale-GP em Casa (Corrida inteira juntos) 🏁", cat: "f1" },
-            { titulo: "Futebol: Vale-Final de Campeonato (Petiscos) ⚽", cat: "futebol" },
-            { titulo: "Toguro: Vale-Em Pleno 2026 (Lição Motivacional) 🗣️", cat: "toguro" },
-            { titulo: "Shape: Vale-Mansão Maromba (Treino juntos) 💪", cat: "shape" },
-            { titulo: "Vale um 'dia de sim' (Eu topo todos os planos) ✅", cat: "casal" },
-            { titulo: "Vale uma massagem relaxante 💆‍♂️", cat: "casal" },
-            { titulo: "Vale ganhar uma discussão (Mesmo sem razão!) 🤫", cat: "casal" }
-            // Adicione os outros aqui seguindo o padrão { titulo: "...", cat: "..." }
-        ];
+    // LISTA EXPANDIDA DE VALES
+    const valesData = [
+        // CATEGORIA: F1 🏎️
+        { titulo: "Vale-Pole Position: Você escolhe onde sentar hoje! 🏎️", cat: "f1" },
+        { titulo: "Vale-Pit Stop: Massagem rápida de 10 min nos pés 🏁", cat: "f1" },
+        { titulo: "Vale-GP em Casa: Maratona de corrida/série sem interrupção 📺", cat: "f1" },
+        { titulo: "Vale-DRS Ativado: Eu faço um favor chato por você hoje 💨", cat: "f1" },
+        { titulo: "Vale-Pódio: Um doce ou chocolate da sua escolha 🏆", cat: "f1" },
 
-        // Carrega o progresso do LocalStorage ou inicia vazio
-        let progresso = JSON.parse(localStorage.getItem('vales_1ano')) || {};
+        // CATEGORIA: FUTEBOL ⚽
+        { titulo: "Vale-Final de Champions: Assistir ao jogo com petiscos liberados ⚽", cat: "futebol" },
+        { titulo: "Vale-VAR: Você tem direito a revisar uma decisão minha 🚩", cat: "futebol" },
+        { titulo: "Vale-Gol de Placa: Um elogio sincero e um beijão 🏟️", cat: "futebol" },
+        { titulo: "Vale-Prorrogação: Mais 30 min de soneca de manhã ⏰", cat: "futebol" },
 
-        // Função para desenhar os vales na tela
-        function renderVales() {
-            const container = document.getElementById('lista-vales');
-            if (!container) return;
-            
-            container.innerHTML = valesData.map((vale, i) => `
-                <div class="card ${vale.cat} ${progresso[i] ? 'done' : ''}">
-                    <span class="badge">${vale.cat}</span>
-                    <h3>${vale.titulo}</h3>
-                    ${!progresso[i] 
-                        ? `<button class="btn-resgatar" onclick="resgatar(${i})">RESGATAR</button>` 
-                        : '<span class="status-resgatado">✅ Resgatado</span>'}
-                </div>
-            `).join('');
-        }
+        // CATEGORIA: SHAPE / TREINO 💪
+        { titulo: "Vale-Mansão Maromba: Um treino de perna juntos (sem reclamar!) 💪", cat: "shape" },
+        { titulo: "Vale-Pré Treino: Eu preparo o seu lanche/shake hoje 🥤", cat: "shape" },
+        { titulo: "Vale-Off Season: Um dia inteiro comendo o que a gente quiser 🍔", cat: "shape" },
+        { titulo: "Vale-Check de Shape: 5 elogios sobre sua evolução física 🔥", cat: "shape" },
 
-        // Função para resgatar um vale
-        window.resgatar = (i) => {
-            if(confirm("Deseja resgatar este vale agora? Ele ficará marcado como usado.")) {
-                progresso[i] = true;
-                localStorage.setItem('vales_1ano', JSON.stringify(progresso));
-                renderVales();
-            }
-        };
+        // CATEGORIA: TOGURO / MOTIVACIONAL 🗣️
+        { titulo: "Vale-Em pleno 2026: Uma lição de moral carinhosa 🗣️", cat: "toguro" },
+        { titulo: "Vale-Falar de Projeto: 15 min ouvindo seus planos pro futuro 🚀", cat: "toguro" },
+        { titulo: "Vale-Mindset: Eu te incentivo a não desistir de algo hoje 🧠", cat: "toguro" },
 
-        // Função para trocar de aba
-        window.showTab = (tabId, btn) => {
-            // Esconde todas as seções
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            // Desativa todos os botões
-            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-            
-            // Mostra a seção clicada e ativa o botão
-            document.getElementById(tabId).classList.add('active');
-            btn.classList.add('active');
-            
-            // Rola para o topo suavemente
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // CATEGORIA: CASAL / ROMANCE ❤️
+        { titulo: "Vale um jantar romântico feito por mim 🍷", cat: "casal" },
+        { titulo: "Vale um 'Dia de Sim': Eu topo todos os seus planos hoje ✅", cat: "casal" },
+        { titulo: "Vale ganhar uma discussão (Mesmo sem razão!) 🤫", cat: "casal" },
+        { titulo: "Vale uma noite de cinema com pipoca e cafuné 🍿", cat: "casal" },
+        { titulo: "Vale um passeio no parque ou lugar ao ar livre 🌳", cat: "casal" },
+        { titulo: "Vale um delivery da sua comida favorita por minha conta 🍕", cat: "casal" },
+        { titulo: "Vale um café da manhã na cama ☕", cat: "casal" },
+        { titulo: "Vale um vale-presente surpresa (algo de até R$ 20) 🎁", cat: "casal" },
+        { titulo: "Vale uma dança lenta na sala ao som da nossa música 💃", cat: "casal" }
+    ];
 
-        // CONTADOR DE DIAS
-        const dataInicio = new Date("2025-03-29T00:00:00"); // Ajuste sua data aqui (Ano-Mês-Dia)
+    // Carrega o progresso do LocalStorage
+    let progresso = JSON.parse(localStorage.getItem('vales_1ano')) || {};
+
+    function renderVales() {
+        const container = document.getElementById('lista-vales');
+        if (!container) return;
         
-        function atualizarContador() {
-            const agora = new Date();
-            const diferenca = agora - dataInicio;
-            
-            // Converte milissegundos em dias
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            
-            const el = document.getElementById('contador');
-            if(el) el.innerHTML = `<strong>${dias} dias</strong> de nós`;
+        container.innerHTML = valesData.map((vale, i) => `
+            <div class="card ${vale.cat} ${progresso[i] ? 'done' : ''}">
+                <span class="badge">${vale.cat}</span>
+                <h3>${vale.titulo}</h3>
+                ${!progresso[i] 
+                    ? `<button class="btn-resgatar" onclick="resgatar(${i})">RESGATAR</button>` 
+                    : '<span class="status-resgatado">✅ Resgatado</span>'}
+            </div>
+        `).join('');
+    }
+
+    window.resgatar = (i) => {
+        if(confirm("Deseja resgatar este vale agora?")) {
+            progresso[i] = true;
+            localStorage.setItem('vales_1ano', JSON.stringify(progresso));
+            renderVales();
         }
-        
-        // Atualiza a cada segundo e roda uma vez ao carregar
-        setInterval(atualizarContador, 1000);
-        atualizarContador();
-        
-        // Desenha os vales ao carregar a página
-        renderVales();
-    </script>
+    };
+
+    window.showTab = (tabId, btn) => {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        btn.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const dataInicio = new Date("2025-03-29T00:00:00");
+    function atualizarContador() {
+        const agora = new Date();
+        const diferenca = agora - dataInicio;
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const el = document.getElementById('contador');
+        if(el) el.innerHTML = `<strong>${dias} dias</strong> de nós`;
+    }
+    
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+    renderVales();
+</script>
 </body>
 </html>
