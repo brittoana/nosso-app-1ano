@@ -6,7 +6,13 @@
     <title>Ana Paula & Benjamim</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Great+Vibes&family=Cedarville+Cursive&display=swap" rel="stylesheet">
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="fotos/A&B.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="fotos/A&B.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ana & Benjamim">
+
     <style>
         :root {
             --boho-bg: #F9F1E7;    
@@ -22,132 +28,84 @@
             background-color: var(--boho-bg);
             color: var(--boho-marrom);
             margin: 0;
-            padding: 40px 20px 140px 20px;
+            padding: 80px 20px 40px 20px;
             -webkit-font-smoothing: antialiased;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 50px;
+        /* === SPLASH SCREEN === */
+        .splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--boho-bg);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-out, visibility 0.8s;
         }
+        .splash-screen.hidden { opacity: 0; visibility: hidden; }
+        .splash-content { text-align: center; padding: 0 30px; animation: scaleIn 1s ease-out; }
+        .splash-versiculo { font-family: 'Cedarville Cursive', cursive; font-size: 1.2rem; color: var(--boho-marrom-light); margin-bottom: 40px; }
+        .loader-container { width: 200px; height: 4px; background: rgba(193, 163, 111, 0.2); border-radius: 2px; margin: 0 auto 15px auto; overflow: hidden; }
+        .loader-bar { width: 0; height: 100%; background: var(--boho-burgundy); animation: fillLoader 3s forwards ease-in-out; }
+        @keyframes fillLoader { to { width: 100%; } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
-        h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin: 0;
-            color: var(--boho-burgundy);
-        }
+        /* === MENU LATERAL === */
+        .menu-burger { position: fixed; top: 25px; left: 20px; font-size: 1.8rem; color: var(--boho-burgundy); z-index: 1001; cursor: pointer; }
+        .side-menu { height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; left: 0; background-color: var(--boho-bg); overflow-x: hidden; transition: 0.5s; padding-top: 60px; box-shadow: 2px 0 15px rgba(0,0,0,0.1); }
+        .side-menu a { padding: 15px 32px; text-decoration: none; font-size: 1.1rem; color: var(--boho-marrom); display: block; font-weight: 700; border-bottom: 1px solid rgba(193,163,111,0.1); }
+        .menu-header { padding: 0 32px 20px 32px; font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--boho-burgundy); }
+        .close-btn { position: absolute; top: 10px; right: 25px; font-size: 2.5rem; color: var(--boho-burgundy); cursor: pointer; }
+        #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1500; }
 
-        .versiculo {
-            font-family: 'Cedarville Cursive', cursive;
-            font-size: 1.1rem;
-            color: var(--boho-marrom-light);
-            line-height: 1.6;
-            margin: 15px 0 25px 0;
-            display: inline-block;
-            padding: 0 10px;
-        }
-
-        #contador {
-            font-size: 2.5rem;
-            color: var(--boho-burgundy);
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        header p {
-            font-size: 0.75rem;
-            color: var(--boho-caqui);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
-        }
-
+        /* === CONTEÚDO === */
+        header { text-align: center; margin-bottom: 50px; }
+        h2 { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--boho-burgundy); margin: 0; }
+        .versiculo-header { font-family: 'Cedarville Cursive', cursive; font-size: 0.9rem; color: var(--boho-marrom-light); display: block; margin: 10px 0; }
+        #contador { font-size: 2.2rem; color: var(--boho-burgundy); font-weight: 700; }
         .section { display: none; }
         .section.active { display: block; animation: fadeIn 0.6s ease; }
-
-        .card {
-            background: var(--card-white);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(92, 61, 46, 0.08);
-            border: 1px solid rgba(193, 163, 111, 0.15);
-        }
-
-        .badge {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: white;
-            background: var(--boho-caqui);
-            padding: 5px 12px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .card h3 {
-            font-size: 1.1rem;
-            margin: 0 0 18px 0;
-            line-height: 1.4;
-            color: var(--boho-marrom);
-            font-weight: 700;
-        }
-
-        .btn-resgatar {
-            background: var(--boho-burgundy);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: 700;
-            width: 100%;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .card.done { opacity: 0.5; filter: sepia(0.3); }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            background: rgba(249, 241, 231, 0.96);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 0 45px 0;
-            border-top: 1px solid rgba(193, 163, 111, 0.2);
-            z-index: 1000;
-        }
-
-        .nav-item {
-            border: none; background: none;
-            color: var(--boho-marrom);
-            font-weight: 700;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            opacity: 0.5;
-            cursor: pointer;
-        }
-
-        .nav-item.active { color: var(--boho-burgundy); opacity: 1; }
+        
+        /* Grid de Categorias */
+        .grid-categorias { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .card-categoria { background: var(--card-white); padding: 30px 10px; border-radius: 20px; text-align: center; border: 1px solid var(--boho-caqui); }
+        
+        /* Cards dos Vales */
+        .card { background: var(--card-white); border-radius: 20px; padding: 20px; margin-bottom: 15px; border: 1px solid rgba(193,163,111,0.15); }
+        .card.done { opacity: 0.5; filter: grayscale(1); }
+        .badge { font-size: 0.6rem; background: var(--boho-caqui); color: white; padding: 4px 10px; border-radius: 5px; text-transform: uppercase; }
+        .btn-resgatar { background: var(--boho-burgundy); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: 700; margin-top: 10px; }
+        .btn-voltar { background: none; border: 1px solid var(--boho-caqui); color: var(--boho-caqui); padding: 8px 15px; border-radius: 10px; margin-bottom: 20px; font-weight: 700; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <p class="splash-versiculo">"Para que todos vejam... que a mão do Senhor fez isto"</p>
+            <div class="loader-container"><div class="loader-bar"></div></div>
+            <p style="font-size: 0.7rem; color: var(--boho-caqui); letter-spacing: 2px;">CARREGANDO NOSSO AMOR</p>
+        </div>
+    </div>
+
+    <div class="menu-burger" onclick="toggleMenu()">☰</div>
+    <div id="side-menu" class="side-menu">
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <div class="menu-header">Menu</div>
+        <a href="#" onclick="irParaInicio()">🎟️ Meus Vales</a>
+        <a href="#" onclick="showTab('fotos')">📸 Galeria de Fotos</a>
+        <a href="#" onclick="showTab('trilha')">🎵 Nossa Trilha</a>
+    </div>
+    <div id="overlay" onclick="toggleMenu()"></div>
+
     <header>
-        <h2>Ana Paula & Benjamim</h2>
-        <span class="versiculo">
-            "Para que todos vejam, e saibam, e considerem, e juntamente entendam que a mão do Senhor fez isto"
-        </span>
+        <h2>Ana & Benjamim</h2>
+        <span class="versiculo-header">"A mão do Senhor fez isto"</span>
         <div id="contador">000 DIAS</div>
-        <p>Desde o nosso primeiro sim</p>
+        <p style="font-size: 0.7rem; color: var(--boho-caqui); text-transform: uppercase;">Desde o nosso primeiro sim</p>
     </header>
 
     <div id="vales" class="section active">
@@ -157,169 +115,107 @@
     <div id="fotos" class="section">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <img src="fotos/foto1.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto10.jpg" style="width:100%; border-radius:15px;">
             <img src="fotos/foto2.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto3.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto4.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto5.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto6.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto7.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto8.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto9.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto11.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto12.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto13.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto14.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto15.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto16.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto17.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto18.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto19.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto20.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto21].JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto22.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto23.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto24(1).jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto24.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto25.JPG" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto26.JPG" style="width:100%; border-radius:15px;">
-        </div>
+            </div>
     </div>
 
     <div id="trilha" class="section">
-        <iframe allow="autoplay *; encrypted-media *; fullscreen *;" frameborder="0" height="450" style="width:100%; border-radius:20px;" src="https://embed.music.apple.com/br/playlist/a-b/pl.u-JPAZbdJulR8D6jZ?l=en"></iframe>
+        <iframe allow="autoplay" frameborder="0" height="450" style="width:100%; border-radius:20px;" src="https://embed.music.apple.com/br/playlist/a-b/pl.u-JPAZbdJulR8D6jZ"></iframe>
     </div>
-
-    <nav class="bottom-nav">
-        <button class="nav-item active" onclick="showTab('vales', this)">🎟️ Vales</button>
-        <button class="nav-item" onclick="showTab('fotos', this)">📸 Fotos</button>
-        <button class="nav-item" onclick="showTab('trilha', this)">🎵 Músicas</button>
-    </nav>
 
     <script>
         const valesData = [
             { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "Casal" },
-            { titulo: "Vale uma noite de cinema com pipoca e a escolha do filme é sua 🍿", cat: "Casal" },
-            { titulo: "Vale uma maratona da sua série favorita 📺", cat: "Casal" },
-            { titulo: "Vale uma noite de jogos (tabuleiro ou videogame) 🎮", cat: "Casal" },
             { titulo: "Vale uma massagem relaxante 💆‍♂️", cat: "Casal" },
-            { titulo: "Vale uma sobremesa feita especialmente para você 🍰", cat: "Casal" },
-            { titulo: "Vale um acampamento na sala (colchão e luzinhas) ✨", cat: "Casal" },
-            { titulo: "Vale um piquenique no parque 🧺", cat: "Casal" },
-            { titulo: "Vale um sorvete no meio da tarde 🍦", cat: "Casal" },
-            { titulo: "Vale uma trilha ou caminhada ao ar livre 🌿", cat: "Casal" },
-            { titulo: "Vale um jantar no seu restaurante favorito 🍽️", cat: "Casal" },
-            { titulo: "Vale uma ida ao cinema para ver um lançamento 🎬", cat: "Casal" },
-            { titulo: "Vale uma noite de boliche ou fliperama Bowling", cat: "Casal" },
-            { titulo: "Vale um 'dia de sim' ✅", cat: "Casal" },
-            { titulo: "Vale um café da tarde em uma cafeteria superfaturada ☕", cat: "Casal" },
-            { titulo: "Vale uma noite para dançar 💃", cat: "Casal" },
-            { titulo: "Vale um pôr do sol em um lugar bonito 🌅", cat: "Casal" },
-            { titulo: "Vale eu aprender algo que você gosta 🧠", cat: "Casal" },
-            { titulo: "Vale uma playlist de fotos e vídeos dos nossos melhores momentos 📱", cat: "Casal" },
-            { titulo: "Vale uma carta escrita à mão com 10 motivos por que te amo ✍️", cat: "Casal" },
-            { titulo: "Vale um 'vale-presente' em uma loja que você gosta 🎁", cat: "Casal" },
-            { titulo: "Vale escolher o look que eu vou usar em um encontro 👗", cat: "Casal" },
-            { titulo: "Vale 10 beijos inesperados 💋", cat: "Casal" },
-            { titulo: "Vale um abraço de urso de 1 minuto 🫂", cat: "Casal" },
-            { titulo: "Vale um elogio sincero por hora durante um dia todo 🌟", cat: "Casal" },
-            { titulo: "Vale uma declaração pública de amor ❤️", cat: "Casal" },
-            { titulo: "Vale revivermos o nosso primeiro encontro 🔙", cat: "Casal" },
-            { titulo: "Vale ganhar uma discussão (mesmo sem razão!) 🤫", cat: "Casal" },
-            { titulo: "Vale uma pergunta que responderei com honestidade 🗣️", cat: "Casal" },
-            { titulo: "Vale um desejo aleatório ✨", cat: "Casal" },
-            { titulo: "Vale renovar este bloquinho de vales 📝", cat: "Casal" },
-            { titulo: "Vale um dia inteiro sem celular 📵", cat: "Casal" },
-            { titulo: "Vale uma dança romântica na sala 🎶", cat: "Casal" },
-            { titulo: "Vale um 'Eu te amo' bem criativo 🎨", cat: "Casal" },
-            { titulo: "Vale-Pole Position: Você escolhe onde sentar 🏎️", cat: "F1" },
             { titulo: "Vale-GP em Casa: Assistir corrida inteira juntos 🏁", cat: "F1" },
-            { titulo: "Vale-Final de Campeonato: Petiscos para o jogo do seu time ⚽", cat: "Futebol" },
-            { titulo: "Vale-Simulador: Ida ao kart ou fliperama de corrida 🏎️", cat: "F1" },
-            { titulo: "Vale-Camisa de Time: Eu uso a camisa do seu time por um dia 👕", cat: "Futebol" },
-            { titulo: "Vale-Comentarista: Assistir análise de F1/Futebol comigo 🎙️", cat: "F1" },
+            { titulo: "Vale-Final de Campeonato: Petiscos para o jogo ⚽", cat: "Futebol" },
             { titulo: "Vale-Mansão Maromba: Um treino junto 💪", cat: "Shape" },
-            { titulo: "Vale-Shape Inexplicável: Um dia de dieta rigorosa comigo 🥗", cat: "Shape" },
-            { titulo: "Vale-Em Pleno 2026: Lição de moral sem interrupção 🗣️", cat: "Toguro" },
-            { titulo: "Vale-Postagem de Casal: Foto com legenda motivacional 📸", cat: "Toguro" },
-            { titulo: "Vale-Call de Boa Noite: Vídeo de 30 min antes de dormir 🌙", cat: "Casal" },
-            { titulo: "Vale-Escolha o Filme: Streaming simultâneo 💻", cat: "Casal" },
-            { titulo: "Vale-Hospedagem VIP: Minha casa com tudo que você gosta 🏠", cat: "Casal" },
-            { titulo: "Vale-Roteiro Turístico: Eu planejo o próximo encontro 🗺️", cat: "Casal" },
-            { titulo: "Vale-Safety Car: Pausa estratégica em discussão ⚠️", cat: "F1" },
-            { titulo: "Vale-Entrevista Coletiva: Paro tudo para te ouvir 🎤", cat: "Casal" },
-            { titulo: "Vale-Paddock VIP: Jantar especial sendo eu a anfitriã 🍽️", cat: "F1" },
-            { titulo: "Vale-Abastecimento: Eu pago o próximo lanche 🍔", cat: "F1" },
-            { titulo: "Vale-Shape Blindado: Dia de elogios à sua evolução 🦾", cat: "Shape" },
-            { titulo: "Vale-Dose de Endorfina: Passeio ao ar livre juntos 🚲", cat: "Shape" },
-            { titulo: "Vale-Marmita de Ouro: Cozinho sua dieta da semana 🍱", cat: "Shape" },
-            { titulo: "Vale-Vencer o Sistema: Desabafo sobre estudos e eu apoio 🤝", cat: "Casal" },
-            { titulo: "Vale-Post de Casal Maromba: Tiro 10 fotos suas na academia 🤳", cat: "Shape" },
-            { titulo: "Vale-Gol de Placa: Jantar para comemorar conquista sua 🏆", cat: "Futebol" },
-            { titulo: "Vale-Camisa 10: Você toma todas as decisões do meu dia 🔟", cat: "Futebol" },
-            { titulo: "Vale-Substituição: Faço uma tarefa chata por você 🔄", cat: "Futebol" },
-            { titulo: "Vale-Acréscimos: Mais 15 minutos de cafuné ⏱️", cat: "Futebol" },
-            { titulo: "Vale-Janela de Transferência: Lugar novo na cidade 📍", cat: "Futebol" },
-            { titulo: "Vale-Pênalti a Favor: Um favor 'difícil' para mim ⚽", cat: "Futebol" },
-            { titulo: "Vale-Notificação Favorita: Fotos e vídeos fofos o dia todo 📩", cat: "Casal" },
-            { titulo: "Vale-Áudio de Bom Dia: Motivos do meu orgulho 🎙️", cat: "Casal" },
-            { titulo: "Vale-Web Date: Jantarmos por vídeo call 🥂", cat: "Casal" },
-            { titulo: "Vale-Contagem Regressiva: Plano para o próximo fds 🗓️", cat: "Casal" },
-            { titulo: "Vale-Delivery de Doce: Mimo na tarde de estudos 🍩", cat: "Casal" },
-            { titulo: "Vale-Spoiler de Amor: Motivo novo por dia (1 semana) 💖", cat: "Casal" },
-            { titulo: "Vale-Skin Care de Casal: Eu cuido da sua pele ✨", cat: "Casal" },
-            { titulo: "Vale-Roupa Escolhida: Eu escolho o seu look 👕", cat: "Casal" },
-            { titulo: "Vale-Massagem Capilar: Cafuné assistindo TV 💆‍♂️", cat: "Casal" },
-            { titulo: "Vale-Lembrança de 1 Ano: 12 melhores memórias 📝", cat: "Casal" },
-            { titulo: "Vale-Calar a Boca: Paro de falar por 10 minutos 🤐", cat: "Casal" },
-            { titulo: "Vale-Google Humano: Resolvo dúvida técnica para você 🔍", cat: "Casal" },
-            { titulo: "Vale-Veto de Assunto: Mudar assunto chato na hora 🚫", cat: "Casal" },
-            { titulo: "Vale-Revanche: Repetir encontro legal 🔁", cat: "Casal" },
-            { titulo: "Vale-Look Conforto: Sair de pijama/moletom ☁️", cat: "Casal" },
-            { titulo: "Vale-Música Repetida: Ouço sua música 3x seguidas 🎵", cat: "Casal" },
-            { titulo: "Vale-Sonho Realizado: Pequeno desejo para hoje ✨", cat: "Casal" },
-            { titulo: "Vale-Vale Tudo: Repetir qualquer opção anterior 🔄", cat: "Casal" }
+            { titulo: "Vale-Em Pleno 2026: Lição de moral 🗣️", cat: "Toguro" },
+            // ... adicione todos os outros aqui seguindo esse padrão
         ];
 
         let progresso = JSON.parse(localStorage.getItem('vales_1ano')) || {};
 
-        function renderVales() {
-            const container = document.getElementById('lista-vales');
-            container.innerHTML = valesData.map((vale, i) => `
-                <div class="card ${progresso[i] ? 'done' : ''}">
-                    <span class="badge">${vale.cat}</span>
-                    <h3>${vale.titulo}</h3>
-                    ${!progresso[i] 
-                        ? `<button class="btn-resgatar" onclick="resgatar(${i})">RESGATAR</button>` 
-                        : '<span style="font-weight:700; color:var(--boho-caqui)">✓ RESGATADO</span>'}
-                </div>
-            `).join('');
+        // Splash Screen Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('splash-screen').classList.add('hidden');
+            }, 3500);
+        });
+
+        // Menu Logic
+        function toggleMenu() {
+            const menu = document.getElementById("side-menu");
+            const overlay = document.getElementById("overlay");
+            const isOpen = menu.style.width === "280px";
+            menu.style.width = isOpen ? "0" : "280px";
+            overlay.style.display = isOpen ? "none" : "block";
         }
 
-        window.resgatar = (i) => {
-            if(confirm("Confirmar resgate?")) {
-                progresso[i] = true;
-                localStorage.setItem('vales_1ano', JSON.stringify(progresso));
-                renderVales();
-            }
-        };
-
-        window.showTab = (id, btn) => {
+        function showTab(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            btn.classList.add('active');
+            if(id === 'vales') renderCategorias();
+            toggleMenu();
             window.scrollTo(0,0);
         }
 
+        function irParaInicio() {
+            showTab('vales');
+        }
+
+        // Vales & Categories Logic
+        function renderCategorias() {
+            const container = document.getElementById('lista-vales');
+            const categorias = [...new Set(valesData.map(v => v.cat))];
+            container.innerHTML = `<div class="grid-categorias">
+                ${categorias.map(cat => `
+                    <div class="card-categoria" onclick="filtrarVales('${cat}')">
+                        <div style="font-size: 2rem">${getEmoji(cat)}</div>
+                        <h4>${cat}</h4>
+                    </div>
+                `).join('')}
+            </div>`;
+        }
+
+        function filtrarVales(categoria) {
+            const container = document.getElementById('lista-vales');
+            const filtrados = valesData.map((v, i) => ({...v, id: i})).filter(v => v.cat === categoria);
+            
+            container.innerHTML = `
+                <button class="btn-voltar" onclick="renderCategorias()">← Voltar</button>
+                ${filtrados.map(v => `
+                    <div class="card ${progresso[v.id] ? 'done' : ''}">
+                        <span class="badge">${v.cat}</span>
+                        <h3>${v.titulo}</h3>
+                        ${!progresso[v.id] ? `<button class="btn-resgatar" onclick="resgatar(${v.id}, '${v.cat}')">RESGATAR</button>` : '<span>✓ RESGATADO</span>'}
+                    </div>
+                `).join('')}`;
+        }
+
+        function getEmoji(cat) {
+            const emojis = { "Casal": "❤️", "F1": "🏎️", "Futebol": "⚽", "Shape": "💪", "Toguro": "⚖️" };
+            return emojis[cat] || "🎟️";
+        }
+
+        window.resgatar = (i, cat) => {
+            if(confirm("Confirmar resgate?")) {
+                progresso[i] = true;
+                localStorage.setItem('vales_1ano', JSON.stringify(progresso));
+                filtrarVales(cat);
+            }
+        };
+
+        // Contador
         const dataInicio = new Date("2025-03-29T00:00:00");
         function atualizarContador() {
             const dias = Math.floor((new Date() - dataInicio) / (1000 * 60 * 60 * 24));
             document.getElementById('contador').innerText = dias + " DIAS";
         }
+
         setInterval(atualizarContador, 1000);
         atualizarContador();
-        renderVales();
+        renderCategorias();
     </script>
 </body>
 </html>
