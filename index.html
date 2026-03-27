@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Ana Paula & Benjamim </title>
+    <title>Ana Paula & Benjamim</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Great+Vibes&family=Cedarville+Cursive&display=swap" rel="stylesheet">
     
     <style>
-        /* Importando Great Vibes (Assinatura do Título) */
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-        
-        /* Importando Cedarville Cursive (Manuscrita do Versículo) */
-        @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
-
         :root {
-            /* Paleta Bohemian Expandida */
-            --boho-bg: #F9F1E7;    /* Bege Claro */
-            --boho-burgundy: #801818; /* Burgundy (Vinho) */
-            --boho-caqui: #C1A36F;   /* Caqui (Dourado terroso) */
-            --boho-marrom: #5C3D2E;  /* Marrom escuro */
-            --boho-marrom-light: #8B7163; /* Marrom mais claro para o versículo */
+            --boho-bg: #F9F1E7;    
+            --boho-burgundy: #801818; 
+            --boho-caqui: #C1A36F;   
+            --boho-marrom: #5C3D2E;  
+            --boho-marrom-light: #8B7163;
             --card-white: #FFFFFF;
         }
 
@@ -36,43 +29,34 @@
         header {
             text-align: center;
             margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin: 0;
+            color: var(--boho-burgundy);
+        }
+
+        .versiculo {
+            font-family: 'Cedarville Cursive', cursive;
+            font-size: 1.1rem;
+            color: var(--boho-marrom-light);
+            line-height: 1.6;
+            margin: 15px 0 25px 0;
+            display: inline-block;
             padding: 0 10px;
         }
 
-        /* TÍTULO PRINCIPAL: Ana Paula & Benjamim (Fonte Assinatura) */
-        h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.8rem;
-            font-weight: 400;
-            margin: 0 0 5px 0;
-            color: var(--boho-burgundy);
-            letter-spacing: -1px;
-        }
-
-        /* VERSÍCULO: Fonte Manuscrita (Cedarville Cursive) */
-        .versiculo {
-            font-family: 'Cedarville Cursive', cursive;
-            font-size: 1.1rem; /* Tamanho ideal para legibilidade */
-            color: var(--boho-marrom-light); /* Cor mais suave */
-            line-height: 1.6;
-            margin: 0 0 25px 0;
-            padding: 0 15px;
-            display: inline-block;
-        }
-
-        /* CONTADOR COMO SUBTÍTULO */
         #contador {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem; /* Tamanho de subtítulo */
+            font-size: 2.5rem;
             color: var(--boho-burgundy);
             font-weight: 700;
-            display: block;
-            margin: 0 0 5px 0;
-            letter-spacing: -1px;
+            margin-bottom: 5px;
         }
 
         header p {
-            font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
             color: var(--boho-caqui);
             font-weight: 700;
@@ -81,7 +65,9 @@
             margin: 0;
         }
 
-        /* Seções e Cards (Visual Bohemian mantido) */
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.6s ease; }
+
         .card {
             background: var(--card-white);
             border-radius: 20px;
@@ -107,29 +93,25 @@
             font-size: 1.1rem;
             margin: 0 0 18px 0;
             line-height: 1.4;
-            font-weight: 700;
             color: var(--boho-marrom);
+            font-weight: 700;
         }
 
         .btn-resgatar {
-            font-family: 'Montserrat', sans-serif;
             background: var(--boho-burgundy);
             color: white;
             border: none;
             padding: 15px;
             border-radius: 12px;
             font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
             width: 100%;
             cursor: pointer;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(128, 24, 24, 0.15);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
         }
 
         .card.done { opacity: 0.5; filter: sepia(0.3); }
 
-        /* Menu Inferior Estilo iOS */
         .bottom-nav {
             position: fixed;
             bottom: 0; left: 0; right: 0;
@@ -143,23 +125,17 @@
         }
 
         .nav-item {
-            font-family: 'Montserrat', sans-serif;
             border: none; background: none;
             color: var(--boho-marrom);
             font-weight: 700;
             font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
             opacity: 0.5;
+            cursor: pointer;
         }
 
-        .nav-item.active { 
-            color: var(--boho-burgundy); 
-            opacity: 1;
-        }
+        .nav-item.active { color: var(--boho-burgundy); opacity: 1; }
 
-        .section { display: none; }
-        .section.active { display: block; animation: fadeIn 0.6s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
@@ -167,11 +143,9 @@
 
     <header>
         <h2>Ana Paula & Benjamim</h2>
-        
         <span class="versiculo">
             "Para que todos vejam, e saibam, e considerem, e juntamente entendam que a mão do Senhor fez isto"
         </span>
-
         <div id="contador">000 DIAS</div>
         <p>Desde o nosso primeiro sim</p>
     </header>
@@ -184,35 +158,36 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <img src="fotos/foto1.jpg" style="width:100%; border-radius:15px;">
             <img src="fotos/foto10.jpg" style="width:100%; border-radius:15px;">
-            <img src="fotos/foto2.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto3.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto4.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto5.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto6.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto7.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto8.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto9.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto11.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto12.jpg" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto13.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto14.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto15.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto16.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto17.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto18.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto19.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto20.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto21].JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto22.JPG" style="width:100%; border-radius:15px;" >
-            <img src="fotos/foto23.jpg" style="width:100%; border-radius:15px;" >
+            <img src="fotos/foto2.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto3.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto4.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto5.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto6.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto7.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto8.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto9.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto11.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto12.jpg" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto13.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto14.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto15.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto16.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto17.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto18.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto19.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto20.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto21].JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto22.JPG" style="width:100%; border-radius:15px;">
+            <img src="fotos/foto23.jpg" style="width:100%; border-radius:15px;">
             <img src="fotos/foto24(1).jpg" style="width:100%; border-radius:15px;">
             <img src="fotos/foto24.JPG" style="width:100%; border-radius:15px;">
             <img src="fotos/foto25.JPG" style="width:100%; border-radius:15px;">
             <img src="fotos/foto26.JPG" style="width:100%; border-radius:15px;">
+        </div>
     </div>
 
     <div id="trilha" class="section">
-        <iframe allow="autoplay *; encrypted-media *; fullscreen *;" frameborder="0" height="450" style="width:100%; overflow:hidden; border-radius:20px; box-shadow: 0 8px 25px rgba(92, 61, 46, 0.15);" src="https://embed.music.apple.com/br/playlist/a-b/pl.u-JPAZbdJulR8D6jZ?l=en"></iframe>
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *;" frameborder="0" height="450" style="width:100%; border-radius:20px;" src="https://embed.music.apple.com/br/playlist/a-b/pl.u-JPAZbdJulR8D6jZ?l=en"></iframe>
     </div>
 
     <nav class="bottom-nav">
@@ -222,9 +197,8 @@
     </nav>
 
     <script>
-        // Use a lista de 83 vales enviada anteriormente aqui
         const valesData = [
-           { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "Casal" },
+            { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "Casal" },
             { titulo: "Vale uma noite de cinema com pipoca e a escolha do filme é sua 🍿", cat: "Casal" },
             { titulo: "Vale uma maratona da sua série favorita 📺", cat: "Casal" },
             { titulo: "Vale uma noite de jogos (tabuleiro ou videogame) 🎮", cat: "Casal" },
@@ -236,7 +210,7 @@
             { titulo: "Vale uma trilha ou caminhada ao ar livre 🌿", cat: "Casal" },
             { titulo: "Vale um jantar no seu restaurante favorito 🍽️", cat: "Casal" },
             { titulo: "Vale uma ida ao cinema para ver um lançamento 🎬", cat: "Casal" },
-            { titulo: "Vale uma noite de boliche ou fliperama 🎳", cat: "Casal" },
+            { titulo: "Vale uma noite de boliche ou fliperama Bowling", cat: "Casal" },
             { titulo: "Vale um 'dia de sim' ✅", cat: "Casal" },
             { titulo: "Vale um café da tarde em uma cafeteria superfaturada ☕", cat: "Casal" },
             { titulo: "Vale uma noite para dançar 💃", cat: "Casal" },
@@ -323,7 +297,7 @@
         }
 
         window.resgatar = (i) => {
-            if(confirm("Deseja usar este vale?")) {
+            if(confirm("Confirmar resgate?")) {
                 progresso[i] = true;
                 localStorage.setItem('vales_1ano', JSON.stringify(progresso));
                 renderVales();
