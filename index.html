@@ -11,7 +11,6 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Ana & Benjamim">
 
     <style>
         :root {
@@ -28,7 +27,7 @@
             background-color: var(--boho-bg);
             color: var(--boho-marrom);
             margin: 0;
-            padding: 80px 20px 40px 20px;
+            padding: 90px 25px 50px 25px;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -44,41 +43,39 @@
             transition: opacity 0.8s ease-out, visibility 0.8s;
         }
         .splash-screen.hidden { opacity: 0; visibility: hidden; }
-        .splash-content { text-align: center; padding: 0 30px; animation: scaleIn 1s ease-out; }
+        .splash-content { text-align: center; padding: 0 30px; }
         .splash-versiculo { font-family: 'Cedarville Cursive', cursive; font-size: 1.2rem; color: var(--boho-marrom-light); margin-bottom: 40px; }
-        .loader-container { width: 200px; height: 4px; background: rgba(193, 163, 111, 0.2); border-radius: 2px; margin: 0 auto 15px auto; overflow: hidden; }
+        .loader-container { width: 180px; height: 3px; background: rgba(193, 163, 111, 0.2); margin: 0 auto; overflow: hidden; }
         .loader-bar { width: 0; height: 100%; background: var(--boho-burgundy); animation: fillLoader 3s forwards ease-in-out; }
         @keyframes fillLoader { to { width: 100%; } }
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
         /* === MENU LATERAL === */
-        .menu-burger { position: fixed; top: 25px; left: 20px; font-size: 1.8rem; color: var(--boho-burgundy); z-index: 1001; cursor: pointer; }
+        .menu-burger { position: fixed; top: 30px; left: 20px; font-size: 1.8rem; color: var(--boho-burgundy); z-index: 1001; cursor: pointer; }
         .side-menu { height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; left: 0; background-color: var(--boho-bg); overflow-x: hidden; transition: 0.5s; padding-top: 60px; box-shadow: 2px 0 15px rgba(0,0,0,0.1); }
-        .side-menu a { padding: 15px 32px; text-decoration: none; font-size: 1.1rem; color: var(--boho-marrom); display: block; font-weight: 700; border-bottom: 1px solid rgba(193,163,111,0.1); }
-        .menu-header { padding: 0 32px 20px 32px; font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--boho-burgundy); }
+        .side-menu a { padding: 12px 32px; text-decoration: none; font-size: 1rem; color: var(--boho-marrom); display: block; font-weight: 700; border-bottom: 1px solid rgba(193,163,111,0.05); }
+        .menu-header { padding: 0 32px 10px 32px; font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: var(--boho-burgundy); }
+        .menu-sub { padding: 10px 32px; font-size: 0.7rem; color: var(--boho-caqui); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
         .close-btn { position: absolute; top: 10px; right: 25px; font-size: 2.5rem; color: var(--boho-burgundy); cursor: pointer; }
         #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1500; }
 
         /* === CONTEÚDO === */
-        header { text-align: center; margin-bottom: 50px; }
-        h2 { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--boho-burgundy); margin: 0; }
-        .versiculo-header { font-family: 'Cedarville Cursive', cursive; font-size: 0.9rem; color: var(--boho-marrom-light); display: block; margin: 10px 0; }
-        #contador { font-size: 2.2rem; color: var(--boho-burgundy); font-weight: 700; }
+        header { text-align: center; margin-bottom: 40px; }
+        h2 { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--boho-burgundy); margin: 0; }
+        #contador { font-size: 2rem; color: var(--boho-burgundy); font-weight: 700; margin-top: 10px; }
+        
         .section { display: none; }
-        .section.active { display: block; animation: fadeIn 0.6s ease; }
-        
-        /* Grid de Categorias */
-        .grid-categorias { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .card-categoria { background: var(--card-white); padding: 30px 10px; border-radius: 20px; text-align: center; border: 1px solid var(--boho-caqui); }
-        
-        /* Cards dos Vales */
-        .card { background: var(--card-white); border-radius: 20px; padding: 20px; margin-bottom: 15px; border: 1px solid rgba(193,163,111,0.15); }
-        .card.done { opacity: 0.5; filter: grayscale(1); }
-        .badge { font-size: 0.6rem; background: var(--boho-caqui); color: white; padding: 4px 10px; border-radius: 5px; text-transform: uppercase; }
-        .btn-resgatar { background: var(--boho-burgundy); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: 700; margin-top: 10px; }
-        .btn-voltar { background: none; border: 1px solid var(--boho-caqui); color: var(--boho-caqui); padding: 8px 15px; border-radius: 10px; margin-bottom: 20px; font-weight: 700; }
+        .section.active { display: block; animation: fadeIn 0.8s ease; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Texto de Boas-vindas */
+        .carta { font-family: 'Montserrat', sans-serif; line-height: 1.8; color: var(--boho-marrom); font-size: 1rem; text-align: justify; background: var(--card-white); padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .assinatura { font-family: 'Great Vibes', cursive; font-size: 2rem; text-align: right; color: var(--boho-burgundy); margin-top: 20px; }
+
+        /* Cards Vales */
+        .card { background: var(--card-white); border-radius: 20px; padding: 20px; margin-bottom: 15px; border: 1px solid rgba(193,163,111,0.1); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .card.done { opacity: 0.5; filter: grayscale(1); }
+        .btn-resgatar { background: var(--boho-burgundy); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: 700; margin-top: 10px; font-family: 'Montserrat'; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -87,36 +84,102 @@
         <div class="splash-content">
             <p class="splash-versiculo">"Para que todos vejam... que a mão do Senhor fez isto"</p>
             <div class="loader-container"><div class="loader-bar"></div></div>
-            <p style="font-size: 0.7rem; color: var(--boho-caqui); letter-spacing: 2px;">CARREGANDO NOSSO AMOR</p>
         </div>
     </div>
 
     <div class="menu-burger" onclick="toggleMenu()">☰</div>
     <div id="side-menu" class="side-menu">
         <div class="close-btn" onclick="toggleMenu()">×</div>
-        <div class="menu-header">Menu</div>
-        <a href="#" onclick="irParaInicio()">🎟️ Meus Vales</a>
-        <a href="#" onclick="showTab('fotos')">📸 Galeria de Fotos</a>
-        <a href="#" onclick="showTab('trilha')">🎵 Nossa Trilha</a>
+        <div class="menu-header">Nosso App</div>
+        
+        <a href="#" onclick="showTab('inicio')">🏠 Início (Minha Carta)</a>
+        <a href="#" onclick="showTab('fotos')">📸 Nossa Galeria</a>
+        <a href="#" onclick="showTab('trilha')">🎵 Trilha Sonora</a>
+
+        <div class="menu-sub">Categorias de Vales</div>
+        <div id="menu-categorias"></div>
     </div>
     <div id="overlay" onclick="toggleMenu()"></div>
 
     <header>
         <h2>Ana & Benjamim</h2>
-        <span class="versiculo-header">"A mão do Senhor fez isto"</span>
         <div id="contador">000 DIAS</div>
-        <p style="font-size: 0.7rem; color: var(--boho-caqui); text-transform: uppercase;">Desde o nosso primeiro sim</p>
     </header>
 
-    <div id="vales" class="section active">
+    <div id="inicio" class="section active">
+        <div class="carta">
+            <p><strong>Meu amor,</strong></p>
+            
+            <p>Escreva aqui o seu texto personalizado para o Benjamim. Pode falar sobre esse primeiro ano, sobre como ele mudou sua vida e o que você sente.</p>
+            
+            <p>Este aplicativo é um pedacinho da nossa história. No menu ao lado, você encontra nossos momentos e os vales que preparei com todo carinho para usarmos juntos.</p>
+            
+            <div class="assinatura">Com amor, Ana Paula.</div>
+        </div>
+    </div>
+
+    <div id="vales" class="section">
+        <h3 id="titulo-categoria" style="color: var(--boho-burgundy); margin-bottom: 20px; text-align: center;">Vales</h3>
         <div id="lista-vales"></div>
     </div>
 
     <div id="fotos" class="section">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            
             <img src="fotos/foto1.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto10.jpg" style="width:100%; border-radius:15px;">
+
             <img src="fotos/foto2.jpg" style="width:100%; border-radius:15px;">
-            </div>
+
+            <img src="fotos/foto3.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto4.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto5.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto6.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto7.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto8.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto9.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto11.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto12.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto13.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto14.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto15.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto16.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto17.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto18.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto19.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto20.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto21].JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto22.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto23.jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto24(1).jpg" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto24.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto25.JPG" style="width:100%; border-radius:15px;">
+
+            <img src="fotos/foto26.JPG" style="width:100%; border-radius:15px;">
+          </div>     
     </div>
 
     <div id="trilha" class="section">
@@ -124,6 +187,7 @@
     </div>
 
     <script>
+        // Dados dos Vales (Mantenha todos aqui)
         const valesData = [
             { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "Casal" },
 
@@ -290,10 +354,9 @@
         ];
 
 
-
         let progresso = JSON.parse(localStorage.getItem('vales_1ano')) || {};
 
-        // Splash Screen Logic
+        // Splash Screen (3.5 segundos)
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('splash-screen').classList.add('hidden');
@@ -309,45 +372,43 @@
             overlay.style.display = isOpen ? "none" : "block";
         }
 
+        // Navegação Geral
         function showTab(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            if(id === 'vales') renderCategorias();
             toggleMenu();
             window.scrollTo(0,0);
         }
 
-        function irParaInicio() {
+        // Gera as categorias no Menu Lateral
+        function gerarMenuCategorias() {
+            const container = document.getElementById('menu-categorias');
+            const categorias = [...new Set(valesData.map(v => v.cat))];
+            
+            container.innerHTML = categorias.map(cat => `
+                <a href="#" onclick="abrirCategoria('${cat}')">${getEmoji(cat)} Vales ${cat}</a>
+            `).join('');
+        }
+
+        // Abre a seção de vales já filtrada
+        function abrirCategoria(categoria) {
+            document.getElementById('titulo-categoria').innerText = "Vales: " + categoria;
+            renderListaVales(categoria);
             showTab('vales');
         }
 
-        // Vales & Categories Logic
-        function renderCategorias() {
-            const container = document.getElementById('lista-vales');
-            const categorias = [...new Set(valesData.map(v => v.cat))];
-            container.innerHTML = `<div class="grid-categorias">
-                ${categorias.map(cat => `
-                    <div class="card-categoria" onclick="filtrarVales('${cat}')">
-                        <div style="font-size: 2rem">${getEmoji(cat)}</div>
-                        <h4>${cat}</h4>
-                    </div>
-                `).join('')}
-            </div>`;
-        }
-
-        function filtrarVales(categoria) {
+        function renderListaVales(categoria) {
             const container = document.getElementById('lista-vales');
             const filtrados = valesData.map((v, i) => ({...v, id: i})).filter(v => v.cat === categoria);
             
-            container.innerHTML = `
-                <button class="btn-voltar" onclick="renderCategorias()">← Voltar</button>
-                ${filtrados.map(v => `
-                    <div class="card ${progresso[v.id] ? 'done' : ''}">
-                        <span class="badge">${v.cat}</span>
-                        <h3>${v.titulo}</h3>
-                        ${!progresso[v.id] ? `<button class="btn-resgatar" onclick="resgatar(${v.id}, '${v.cat}')">RESGATAR</button>` : '<span>✓ RESGATADO</span>'}
-                    </div>
-                `).join('')}`;
+            container.innerHTML = filtrados.map(v => `
+                <div class="card ${progresso[v.id] ? 'done' : ''}">
+                    <h3>${v.titulo}</h3>
+                    ${!progresso[v.id] 
+                        ? `<button class="btn-resgatar" onclick="resgatar(${v.id}, '${v.cat}')">RESGATAR</button>` 
+                        : '<div style="text-align:center; color:var(--boho-caqui); font-weight:700; margin-top:10px;">✓ RESGATADO</div>'}
+                </div>
+            `).join('');
         }
 
         function getEmoji(cat) {
@@ -356,14 +417,14 @@
         }
 
         window.resgatar = (i, cat) => {
-            if(confirm("Confirmar resgate?")) {
+            if(confirm("Deseja resgatar este vale agora?")) {
                 progresso[i] = true;
                 localStorage.setItem('vales_1ano', JSON.stringify(progresso));
-                filtrarVales(cat);
+                renderListaVales(cat);
             }
         };
 
-        // Contador
+        // Contador de Dias
         const dataInicio = new Date("2025-03-29T00:00:00");
         function atualizarContador() {
             const dias = Math.floor((new Date() - dataInicio) / (1000 * 60 * 60 * 24));
@@ -372,7 +433,7 @@
 
         setInterval(atualizarContador, 1000);
         atualizarContador();
-        renderCategorias();
+        gerarMenuCategorias();
     </script>
 </body>
 </html>
