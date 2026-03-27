@@ -3,99 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>1 Ano de Nós ❤️</title>
+    <title>Ana Paula & Benjamim </title>
     
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Importando Great Vibes (Assinatura do Título) */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        
+        /* Importando Cedarville Cursive (Manuscrita do Versículo) */
+        @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
         :root {
-            --bg-bege: #F5F5DC; /* Bege Champagne para contraste */
+            /* Paleta Bohemian Expandida */
+            --boho-bg: #F9F1E7;    /* Bege Claro */
+            --boho-burgundy: #801818; /* Burgundy (Vinho) */
+            --boho-caqui: #C1A36F;   /* Caqui (Dourado terroso) */
+            --boho-marrom: #5C3D2E;  /* Marrom escuro */
+            --boho-marrom-light: #8B7163; /* Marrom mais claro para o versículo */
             --card-white: #FFFFFF;
-            --primary-red: #E60000; /* Vermelho F1 */
-            --text-dark: #1C1C1E;
-            --text-muted: #8E8E93;
-            --f1-color: #e60000;
-            --futebol-color: #28a745;
-            --shape-color: #333333;
-            --casal-color: #d1d1d1;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-bege);
-            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--boho-bg);
+            color: var(--boho-marrom);
             margin: 0;
             padding: 40px 20px 140px 20px;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Cabeçalho de Destaque */
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            padding: 0 10px;
         }
 
+        /* TÍTULO PRINCIPAL: Ana Paula & Benjamim (Fonte Assinatura) */
         h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 0;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            font-weight: 400;
+            margin: 0 0 5px 0;
+            color: var(--boho-burgundy);
             letter-spacing: -1px;
-            color: var(--text-dark);
         }
 
+        /* VERSÍCULO: Fonte Manuscrita (Cedarville Cursive) */
+        .versiculo {
+            font-family: 'Cedarville Cursive', cursive;
+            font-size: 1.1rem; /* Tamanho ideal para legibilidade */
+            color: var(--boho-marrom-light); /* Cor mais suave */
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+            padding: 0 15px;
+            display: inline-block;
+        }
+
+        /* CONTADOR COMO SUBTÍTULO */
         #contador {
-            font-size: 3.5rem; /* Fonte do Timer aumentada */
-            color: var(--primary-red);
-            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem; /* Tamanho de subtítulo */
+            color: var(--boho-burgundy);
+            font-weight: 700;
             display: block;
-            margin: 10px 0;
-            letter-spacing: -2px;
+            margin: 0 0 5px 0;
+            letter-spacing: -1px;
         }
 
         header p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            color: var(--boho-caqui);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
         }
 
-        /* Seções */
-        .section { display: none; }
-        .section.active { display: block; animation: slideUp 0.4s ease-out; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Cards de Vales com Design Refinado */
+        /* Seções e Cards (Visual Bohemian mantido) */
         .card {
             background: var(--card-white);
-            border-radius: 22px;
+            border-radius: 20px;
             padding: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(0,0,0,0.03);
-            position: relative;
-            transition: transform 0.2s;
+            box-shadow: 0 8px 20px rgba(92, 61, 46, 0.08);
+            border: 1px solid rgba(193, 163, 111, 0.15);
         }
-
-        .card.casal { border-left: 6px solid var(--casal-color); }
-        .card.f1 { border-left: 6px solid var(--f1-color); }
-        .card.futebol { border-left: 6px solid var(--futebol-color); }
-        .card.shape { border-left: 6px solid var(--shape-color); }
-        .card.toguro { border-left: 6px solid #6c757d; }
 
         .badge {
             font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            background: #F2F2F7;
-            padding: 4px 10px;
+            font-weight: 700;
+            color: white;
+            background: var(--boho-caqui);
+            padding: 5px 12px;
             border-radius: 8px;
             display: inline-block;
             margin-bottom: 12px;
+            text-transform: uppercase;
         }
 
         .card h3 {
@@ -103,81 +108,72 @@
             margin: 0 0 18px 0;
             line-height: 1.4;
             font-weight: 700;
+            color: var(--boho-marrom);
         }
 
         .btn-resgatar {
-            background: var(--primary-red);
+            font-family: 'Montserrat', sans-serif;
+            background: var(--boho-burgundy);
             color: white;
             border: none;
-            padding: 14px;
-            border-radius: 16px;
+            padding: 15px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
             width: 100%;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(230, 0, 0, 0.2);
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(128, 24, 24, 0.15);
         }
 
-        .card.done { opacity: 0.5; filter: grayscale(1); }
+        .card.done { opacity: 0.5; filter: sepia(0.3); }
 
-        /* Galeria de Fotos Grid */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 18px;
-            border: 4px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Player Apple Music */
-        .player-container {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            background: white;
-        }
-
-        /* Barra de Navegação estilo iOS */
+        /* Menu Inferior Estilo iOS */
         .bottom-nav {
             position: fixed;
             bottom: 0; left: 0; right: 0;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(249, 241, 231, 0.96);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-around;
-            padding: 15px 0 40px 0;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            padding: 15px 0 45px 0;
+            border-top: 1px solid rgba(193, 163, 111, 0.2);
             z-index: 1000;
         }
 
         .nav-item {
+            font-family: 'Montserrat', sans-serif;
             border: none; background: none;
-            color: var(--text-muted);
+            color: var(--boho-marrom);
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            letter-spacing: 1px;
+            opacity: 0.5;
         }
 
-        .nav-item.active { color: var(--primary-red); }
+        .nav-item.active { 
+            color: var(--boho-burgundy); 
+            opacity: 1;
+        }
+
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>1 Ano de Nós ❤️</h1>
-        <div id="contador">365 dias</div>
-        <p>Desde o nosso primeiro "sim"</p>
+        <h1>Ana Paula & Benjamim</h1>
+        
+        <span class="versiculo">
+            "Para que todos vejam, e saibam, e considerem, e juntamente entendam que a mão do Senhor fez isto"
+        </span>
+
+        <div id="contador">000 DIAS</div>
+        <p>Desde o nosso primeiro sim</p>
     </header>
 
     <div id="vales" class="section active">
@@ -185,136 +181,46 @@
     </div>
 
     <div id="fotos" class="section">
-        <div class="gallery">
-            <img src="img/foto1.jpg" alt="Memória 1">
-            <img src="img/foto2.jpg" alt="Memória 2">
-            <img src="img/foto3.jpg" alt="Memória 3">
-            <img src="img/foto4.jpg" alt="Memória 4">
-            </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <img src="img/foto1.jpg" style="width:100%; border-radius:15px;" alt="Nós">
+            <img src="img/foto2.jpg" style="width:100%; border-radius:15px;" alt="Nós">
+        </div>
     </div>
 
     <div id="trilha" class="section">
-        <div class="player-container">
-            <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/br/playlist/a-b/pl.u-JPAZbdJulR8D6jZ?l=en"></iframe>
-        </div>
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *;" frameborder="0" height="450" style="width:100%; overflow:hidden; border-radius:20px; box-shadow: 0 8px 25px rgba(92, 61, 46, 0.15);" src="https://embed.music.apple.com/br/playlist/a-b/pl.u-JPAZbdJulR8D6jZ?l=en"></iframe>
     </div>
 
     <nav class="bottom-nav">
         <button class="nav-item active" onclick="showTab('vales', this)">🎟️ Vales</button>
         <button class="nav-item" onclick="showTab('fotos', this)">📸 Fotos</button>
-        <button class="nav-item" onclick="showTab('trilha', this)">🎵 Trilha</button>
+        <button class="nav-item" onclick="showTab('trilha', this)">🎵 Músicas</button>
     </nav>
 
     <script>
+        // Use a lista de 83 vales enviada anteriormente aqui
         const valesData = [
-            // ROMÂNTICOS / CASAL
-            { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "casal" },
-            { titulo: "Vale uma noite de cinema com pipoca e a escolha do filme é sua 🍿", cat: "casal" },
-            { titulo: "Vale uma maratona da sua série favorita 📺", cat: "casal" },
-            { titulo: "Vale uma noite de jogos (tabuleiro ou videogame) 🎮", cat: "casal" },
-            { titulo: "Vale uma massagem relaxante 💆‍♂️", cat: "casal" },
-            { titulo: "Vale uma sobremesa feita especialmente para você 🍰", cat: "casal" },
-            { titulo: "Vale um acampamento na sala (colchão e luzinhas) ✨", cat: "casal" },
-            { titulo: "Vale um piquenique no parque 🧺", cat: "casal" },
-            { titulo: "Vale um sorvete no meio da tarde 🍦", cat: "casal" },
-            { titulo: "Vale uma trilha ou caminhada ao ar livre 🌿", cat: "casal" },
-            { titulo: "Vale um jantar no seu restaurante favorito 🍽️", cat: "casal" },
-            { titulo: "Vale uma ida ao cinema para ver um lançamento 🎬", cat: "casal" },
-            { titulo: "Vale uma noite de boliche ou fliperama 🎳", cat: "casal" },
-            { titulo: "Vale um 'dia de sim' (eu topo todos os seus planos) ✅", cat: "casal" },
-            { titulo: "Vale um café da tarde em uma cafeteria superfaturada ☕", cat: "casal" },
-            { titulo: "Vale uma noite para dançar 💃", cat: "casal" },
-            { titulo: "Vale um pôr do sol em um lugar bonito 🌅", cat: "casal" },
-            { titulo: "Vale eu aprender algo que você gosta (jogo, esporte, hobby) 🧠", cat: "casal" },
-            { titulo: "Vale uma playlist de fotos e vídeos dos nossos melhores momentos 📱", cat: "casal" },
-            { titulo: "Vale uma carta escrita à mão com 10 motivos por que te amo ✍️", cat: "casal" },
-            { titulo: "Vale um 'vale-presente' em uma loja que você gosta 🎁", cat: "casal" },
-            { titulo: "Vale escolher o look que eu vou usar em um encontro 👗", cat: "casal" },
-            { titulo: "Vale 10 beijos inesperados 💋", cat: "casal" },
-            { titulo: "Vale um abraço de urso de 1 minuto 🫂", cat: "casal" },
-            { titulo: "Vale um elogio sincero por hora durante um dia todo 🌟", cat: "casal" },
-            { titulo: "Vale uma declaração pública de amor (post ou mensagem) ❤️", cat: "casal" },
-            { titulo: "Vale revivermos o nosso primeiro encontro 🔙", cat: "casal" },
-            { titulo: "Vale ganhar uma discussão (mesmo sem razão!) 🤫", cat: "casal" },
-            { titulo: "Vale uma pergunta que eu terei que responder com honestidade 🗣️", cat: "casal" },
-            { titulo: "Vale um desejo aleatório (dentro do possível!) ✨", cat: "casal" },
-            { titulo: "Vale renovar este bloquinho de vales quando ele acabar 📝", cat: "casal" },
-            { titulo: "Vale um dia inteiro sem celular, só para nós dois 📵", cat: "casal" },
-            { titulo: "Vale uma dança romântica na sala 🎶", cat: "casal" },
-            { titulo: "Vale um 'Eu te amo' dito de forma criativa 🎨", cat: "casal" },
-
-            // F1 / ESPORTES
-            { titulo: "Vale-Pole Position: Você escolhe onde vamos sentar 🏎️", cat: "f1" },
-            { titulo: "Vale-GP em Casa: Assistir a uma corrida inteira com você 🏁", cat: "f1" },
-            { titulo: "Vale-Final de Campeonato: Eu preparo os petiscos para o jogo ⚽", cat: "futebol" },
-            { titulo: "Vale-Simulador: Uma ida ao kart ou fliperama de corrida 🏎️", cat: "f1" },
-            { titulo: "Vale-Camisa de Time: Eu uso a camisa do seu time por um dia 👕", cat: "futebol" },
-            { titulo: "Vale-Comentarista: Assistir vídeo de F1/Futebol e fingir que entendo tudo 🎙️", cat: "f1" },
-            { titulo: "Vale-Safety Car: Pausa em qualquer discussão (esfriar os pneus) ⚠️", cat: "f1" },
-            { titulo: "Vale-Paddock VIP: Jantar especial onde eu sou a anfitriã 🍽️", cat: "f1" },
-            { titulo: "Vale-Abastecimento: Eu pago o lanche da próxima saída 🍔", cat: "f1" },
-
-            // SHAPE / TOGURO
-            { titulo: "Vale-Mansão Maromba: Um treino junto 💪", cat: "shape" },
-            { titulo: "Vale-Shape Inexplicável: Um dia de dieta rigorosa comigo acompanhando 🥗", cat: "shape" },
-            { titulo: "Vale-Em Pleno 2026: Lição de moral ou história motivacional sem interrupção 🗣️", cat: "toguro" },
-            { titulo: "Vale-Postagem de Casal Maromba: Foto com legenda motivacional no Insta 📸", cat: "toguro" },
-            { titulo: "Vale-Shape Blindado: Um dia inteiro de elogios à sua evolução 🦾", cat: "shape" },
-            { titulo: "Vale-Dose de Endorfina: Passeio ao ar livre (bike ou caminhada) 🚲", cat: "shape" },
-            { titulo: "Vale-Marmita de Ouro: Eu cozinho sua dieta da semana/dia 🍱", cat: "shape" },
-            { titulo: "Vale-Post de Casal Maromba: Tirar 10 fotos suas na academia 🤳", cat: "shape" },
-
-            // OUTROS / DINAMICA
-            { titulo: "Vale-Call de Boa Noite: Vídeo de 30 min antes de dormir 🌙", cat: "casal" },
-            { titulo: "Vale-Escolha o Filme Web: Assistir simultaneamente via streaming 💻", cat: "casal" },
-            { titulo: "Vale-Hospedagem VIP: Minha casa preparada com tudo que você gosta 🏠", cat: "casal" },
-            { titulo: "Vale-Roteiro Turístico: Eu planejo todo o nosso próximo encontro 🗺️", cat: "casal" },
-            { titulo: "Vale-Entrevista Coletiva: Paro tudo para ouvir sobre seu dia/projetos 🎤", cat: "casal" },
-            { titulo: "Vale-Vencer o Sistema: Desabafo sobre trabalho/estudos e eu só apoio 🤝", cat: "casal" },
-            { titulo: "Vale-Gol de Placa: Jantar favorito para comemorar conquista sua 🏆", cat: "futebol" },
-            { titulo: "Vale-Camisa 10: Você é o capitão e toma as decisões do meu dia 🔟", cat: "futebol" },
-            { titulo: "Vale-Substituição: Eu faço aquela tarefa chata por você 🔄", cat: "futebol" },
-            { titulo: "Vale-Acréscimos: Mais 15 minutos de cafuné ⏱️", cat: "futebol" },
-            { titulo: "Vale-Janela de Transferência: Conhecer um lugar novo na cidade 📍", cat: "futebol" },
-            { titulo: "Vale-Pênalti a Favor: Direito de me pedir um favor 'difícil' ⚽", cat: "futebol" },
-            { titulo: "Vale-Notificação Favorita: Envio fotos e vídeos fofos ao longo do dia 📩", cat: "casal" },
-            { titulo: "Vale-Áudio de Bom Dia: Áudio dizendo por que tenho orgulho de você 🎙️", cat: "casal" },
-            { titulo: "Vale-Web Date: Jantarmos juntos por vídeo call 🥂", cat: "casal" },
-            { titulo: "Vale-Contagem Regressiva: Plano detalhado para o próximo fds 🗓️", cat: "casal" },
-            { titulo: "Vale-Delivery de Doce: Mimo por app na tarde de estudos 🍩", cat: "casal" },
-            { titulo: "Vale-Spoiler de Amor: Motivo novo por dia do porquê te amo (1 semana) 💖", cat: "casal" },
-            { titulo: "Vale-Skin Care de Casal: Eu cuido da sua pele ✨", cat: "casal" },
-            { titulo: "Vale-Roupa Escolhida: Eu escolho o seu look para um evento 👕", cat: "casal" },
-            { titulo: "Vale-Massagem Capilar: Cafuné caprichado assistindo TV 💆‍♂️", cat: "casal" },
-            { titulo: "Vale-Lembrança de 1 Ano: Lista das 12 melhores memórias 📝", cat: "casal" },
-            { titulo: "Vale-Calar a Boca: Eu paro de falar por 10 minutos 🤐", cat: "casal" },
-            { titulo: "Vale-Google Humano: Eu resolvo um problema técnico/dúvida para você 🔍", cat: "casal" },
-            { titulo: "Vale-Veto de Assunto: Mudar de assunto na hora se estiver chato 🚫", cat: "casal" },
-            { titulo: "Vale-Revanche: Direito de repetir um encontro muito legal 🔁", cat: "casal" },
-            { titulo: "Vale-Look Conforto: Saímos de pijama/moletom para um lugar legal ☁️", cat: "casal" },
-            { titulo: "Vale-Música Repetida: Ouço sua música favorita 3x seguidas 🎵", cat: "casal" },
-            { titulo: "Vale-Sonho Realizado: Um pequeno desejo para hoje ✨", cat: "casal" },
-            { titulo: "Vale-Vale Tudo: Repetir qualquer uma das opções anteriores 🔄", cat: "casal" }
+            { titulo: "Vale um jantar romântico cozinhado por mim 🍷", cat: "Especial" },
+            { titulo: "Vale uma massagem capilar com cafuné 💆‍♂️", cat: "Relax" }
         ];
 
         let progresso = JSON.parse(localStorage.getItem('vales_1ano')) || {};
 
         function renderVales() {
             const container = document.getElementById('lista-vales');
-            if (!container) return;
             container.innerHTML = valesData.map((vale, i) => `
-                <div class="card ${vale.cat} ${progresso[i] ? 'done' : ''}">
+                <div class="card ${progresso[i] ? 'done' : ''}">
                     <span class="badge">${vale.cat}</span>
                     <h3>${vale.titulo}</h3>
                     ${!progresso[i] 
                         ? `<button class="btn-resgatar" onclick="resgatar(${i})">RESGATAR</button>` 
-                        : '<span style="font-weight:bold; color:var(--text-muted)">✅ Resgatado</span>'}
+                        : '<span style="font-weight:700; color:var(--boho-caqui)">✓ RESGATADO</span>'}
                 </div>
             `).join('');
         }
 
         window.resgatar = (i) => {
-            if(confirm("Deseja resgatar este vale?")) {
+            if(confirm("Deseja usar este vale?")) {
                 progresso[i] = true;
                 localStorage.setItem('vales_1ano', JSON.stringify(progresso));
                 renderVales();
@@ -332,9 +238,8 @@
         const dataInicio = new Date("2025-03-29T00:00:00");
         function atualizarContador() {
             const dias = Math.floor((new Date() - dataInicio) / (1000 * 60 * 60 * 24));
-            document.getElementById('contador').innerText = dias + " dias";
+            document.getElementById('contador').innerText = dias + " DIAS";
         }
-        
         setInterval(atualizarContador, 1000);
         atualizarContador();
         renderVales();
